@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: katka-tekton 
+  description: Secure Supply Chain Example for Node.js+Express REST API with advanced continuous integration pipeline covering building, CVE scanning, security scanning, signatures,  attestations, SLSA provenance and SBOM along with Gitops-based continuous deployment   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:
+    # ArgoCD apps from this template used tssc-gitops as the grouping
+    argocd/app-selector: tssc/gitops=katka-tekton
+    backstage.io/kubernetes-id: katka-tekton 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: katka-tekton
+    quay.io/repository-slug: kkanova0/node
+  tags: ["nodejs", "express", "ubi8", "sscs", "sbom", "acs"] 
+spec:
+  type: service
+  owner: user:guest 
+  lifecycle: experimental
+ 
